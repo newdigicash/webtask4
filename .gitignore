@@ -1,0 +1,52 @@
+# .NET & ASP.NET Core Build Outputs
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+artifacts/
+out/
+core
+
+# NuGet Packages & Locks
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+**/[Pp]ackages/*
+
+# Secrets & Environment Variables (Docker Compose & ASP.NET)
+.env
+.env.*
+!.env.example
+appsettings.Development.json
+appsettings.Local.json
+*.pfx
+*.pem
+*.key
+
+# Docker & MySQL Local Bind-Mount Data
+docker-compose.override.yml
+data/
+mysql-data/
+
+# Logs
+[Ll]og/
+[Ll]ogs/
+*.log
+
+# IDEs & Editors (VS Code, Rider, Visual Studio)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+.vs/
+*.user
+*.suo
+
+# macOS System Files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
