@@ -1,0 +1,44 @@
+@model IEnumerable<CrudPedido.Models.Producto>
+
+@{
+    ViewData["Title"] = "Productos";
+}
+
+<h1>Productos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear Producto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.Precio)</th>
+            <th>@Html.DisplayNameFor(model => model.Stock)</th>
+            <th>@Html.DisplayNameFor(model => model.Categoria)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="tablaproducto">
+@foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+            <td>@Html.DisplayFor(modelItem => item.Precio)</td>
+            <td>@Html.DisplayFor(modelItem => item.Stock)</td>
+            <td>@Html.DisplayFor(modelItem => item.Categoria.Nombre)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-dark btn-sm">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-secondary btn-sm">Detalles</a> |
+                <a href="javascript:void(0)" onclick="eliminar(@item.Id)" class="btn btn-outline-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="~/js/clase_producto.js" asp-append-version="true"></script>
+    <script>
+        window.entidadActual = "producto";
+    </script>
+}

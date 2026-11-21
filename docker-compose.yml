@@ -13,7 +13,7 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      #- ./config/esquema.sql:/docker-entrypoint-initdb.d/esquema.sql
+      - ./config/esquema.sql:/docker-entrypoint-initdb.d/esquema.sql
     networks:
       - app-network
 
@@ -30,13 +30,13 @@ services:
   # configura punto net
   dotnet_app:
     # para prod
-    #build:
-    #  context: .
-    #  dockerfile: Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
     # para desarrollo
-    image: mcr.microsoft.com/dotnet/sdk:10.0
-    volumes:
-      - .:/CrudPedido
+    #image: mcr.microsoft.com/dotnet/sdk:10.0
+    #volumes:
+    #  - .:/CrudPedido
     #command: tail -f /dev/null
     container_name: dotnet_web_api
     restart: always
